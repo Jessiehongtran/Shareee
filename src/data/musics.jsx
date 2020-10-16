@@ -8,7 +8,8 @@ export const musics = [
         artist: "Michael Jackson",
         review: "sweet",
         added_at: "Oct 2020",
-        added_by: "Hong Tran"
+        added_by: "Hong Tran",
+        likes: 0
     },
     {
         id: 2,
@@ -19,7 +20,8 @@ export const musics = [
         artist: "Unknown",
         review: "light, easy-to-take",
         added_at: "Sep 2020",
-        added_by: "Grace Kim"
+        added_by: "Grace Kim",
+        likes: 0
     },
     {
         id: 3,
@@ -30,6 +32,7 @@ export const musics = [
         artist: "Snoop Dogg",
         review: "super high",
         added_at: "Oct 2020",
-        added_by: "Judes"
+        added_by: "Judes",
+        likes: 0
     },
 ]

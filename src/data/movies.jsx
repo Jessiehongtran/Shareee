@@ -7,7 +7,8 @@ export const movies = [
         director: "Hirokazu Koreeda",
         review: "heart broken, beautifully filmed",
         added_at: "Oct 2020",
-        added_by: "Hong Tran"
+        added_by: "Hong Tran",
+        likes: 0
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ export const movies = [
         director: "Bong Joon Ho",
         review: "intense, thrilling",
         added_at: "Sep 2020",
-        added_by: "Grace Kim"
+        added_by: "Grace Kim",
+        likes: 0
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ export const movies = [
         director: "Christopher Nolan",
         review: "amazing, lots of twists",
         added_at: "Oct 2020",
-        added_by: "Judes"
+        added_by: "Judes",
+        likes: 0
     },
     
    

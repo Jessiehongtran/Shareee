@@ -7,7 +7,8 @@ export const books = [
         author: "Richard Powers",
         review: "maginificent, life-changing book, it talks about the effects of human on the planet",
         added_at: "0ct 2020",
-        added_by: "Hong Tran"
+        added_by: "Hong Tran",
+        likes: 0
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ export const books = [
         author: "Michelle Obama",
         review: "intimate, powerful",
         added_at: "Sep 2020",
-        added_by: "Grace Kim"
+        added_by: "Grace Kim",
+        likes: 0
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ export const books = [
         author: "Scott McCloud",
         review: "fun and exciting read, creative drawn in",
         added_at: "Oct 2020",
-        added_by: "Judes"
+        added_by: "Judes",
+        likes: 0
     },
    
 ]
