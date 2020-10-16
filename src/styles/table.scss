@@ -1,0 +1,19 @@
+.table_container {
+
+    table {
+        border-collapse: collapse;
+        text-align: left;
+        width: 100%;
+
+        td, th {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 8px;
+
+            a {
+                color: grey;
+            }
+        }
+    }
+
+}
