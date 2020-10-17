@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/table.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 export default class Table extends React.Component {
     constructor(props){
@@ -34,13 +34,13 @@ export default class Table extends React.Component {
                     </tr>
                     {this.props.data 
                     ? this.props.data.map((thing,i) => 
-                            <tr>
+                            <tr className="each-row">
                                 {Object.values(thing).map(content => 
                                 <td>
                                     {this.isValidUrl(content) 
                                     ? <a href={content}> 
                                         <FontAwesomeIcon 
-                                            icon={faPaperclip} 
+                                            icon={faExternalLinkAlt} 
                                             className="icon"
                                         />
                                       </a> 

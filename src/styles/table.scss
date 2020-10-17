@@ -1,4 +1,5 @@
 .table_container {
+    
 
     table {
         border-collapse: collapse;
@@ -9,10 +10,21 @@
             border-top: 1px solid #ddd;
             border-bottom: 1px solid #ddd;
             padding: 8px;
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 14px;
 
             a {
                 color: grey;
             }
+        }
+
+        th {
+            color: grey;
+            font-weight: 400;
+        }
+
+        .each-row:hover {
+            background-color: #F5F5F5;
         }
     }
 

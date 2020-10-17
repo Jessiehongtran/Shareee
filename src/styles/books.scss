@@ -1,0 +1,25 @@
+.books {
+
+    .main-container {
+        display: flex;
+        align-items: flex-start;
+
+        .profile-container {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        .info-container {
+            width: 100%;
+            .page-title {
+                text-align: left;
+                padding-left: 30px;
+                font-family: 'Noto Sans SC', sans-serif;
+            }
+
+            .content-table {
+                width: 100%;
+                
+            }
+        }
+    }
+}

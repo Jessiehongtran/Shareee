@@ -1,6 +1,9 @@
 import React from 'react';
 import { books } from '../data/books';
 import Table from '../components/table';
+import Nav from '../components/nav';
+import Profile from '../components/profile';
+import '../styles/books.scss'
 
 export default class Books extends React.Component {
     constructor(props){
@@ -13,8 +16,18 @@ export default class Books extends React.Component {
     render(){
         return (
             <div className="books">
-                <h1>Books</h1>
-                <Table data={books}/>
+                <Nav />
+                <div className="main-container">
+                    <div className="profile-container">
+                        <Profile />
+                    </div>
+                    <div className="info-container">
+                        <h1 className="page-title">Books</h1>
+                        <div className="content-table">
+                            <Table data={books}/>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

@@ -1,0 +1,15 @@
+.search {
+    width: 100%;
+   
+    input {
+        width: 50%;
+        height: 40px;
+        padding-left: 10px;
+        border: 1px solid #D4D4D4;
+        font-family: 'Noto Sans SC', sans-serif;
+    }
+
+    input:focus {
+        outline: none;
+    }
+}

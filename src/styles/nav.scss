@@ -1,0 +1,21 @@
+.nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid #D4D4D4;
+    font-family: 'Noto Sans SC', sans-serif;
+
+    .logo {
+        margin-left: 50px;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .share-btn {
+        margin-right: 50px;
+        font-family: 'Noto Sans SC', sans-serif;
+    }
+}
