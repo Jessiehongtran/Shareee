@@ -23,8 +23,8 @@ export default class Table extends React.Component {
 
     render(){
 
-        const { headers } = this.state
-        console.log(this.isValidUrl("https://www.amazon.com/Overstory-Novel-Richard-Powers/dp/039335668X/ref=sr_1_1?crid=YXE9AQ5YD88H&dchild=1&keywords=overstory&qid=1602851910&sprefix=overst%2Caps%2C255&sr=8-1"))
+        const { headers } = this.state;
+        console.log('props in table', this.props)
 
         return (
             <div className="table_container">
@@ -35,8 +35,9 @@ export default class Table extends React.Component {
                     {this.props.data 
                     ? this.props.data.map((thing,i) => 
                             <tr className="each-row">
-                                {Object.values(thing).map(content => 
+                                {Object.values(thing).map((content, j) => 
                                 <td>
+                                    {headers[j] == "likes" ? <span className="like-emoji">👍</span>: null}
                                     {this.isValidUrl(content) 
                                     ? <a href={content}> 
                                         <FontAwesomeIcon 
@@ -44,7 +45,8 @@ export default class Table extends React.Component {
                                             className="icon"
                                         />
                                       </a> 
-                                    : content}
+                                    : <p className="content">{content}</p>}
+
                                 </td>)}
                             </tr>
                         )

@@ -8,6 +8,7 @@
 
     .logo {
         margin-left: 50px;
+        color: #3D30DA;
     }
 
     .search-bar {
@@ -17,5 +18,18 @@
     .share-btn {
         margin-right: 50px;
         font-family: 'Noto Sans SC', sans-serif;
+        width: 150px;
+        border-radius: 4px;
+        border: none;
+        font-size: 18px;
+        padding: 8px 12px 8px 12px;
+        color: white;
+        font-weight: bold;
+        font-family: 'Noto Sans SC', sans-serif;
+        background-image: linear-gradient(to bottom right, blue, purple) ;
+    }
+
+    .share-btn:hover {
+        background-image: linear-gradient(to bottom right, blue, red) ;
     }
 }

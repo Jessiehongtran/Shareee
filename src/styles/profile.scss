@@ -17,11 +17,28 @@
     }
 
     .name {
-
+        margin-top: 0;
     }
 
     .menu {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        .each-session {
+            padding: 10px 0 10px 0;
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+
+            .icon {
+                margin-right: 10px;
+            }
+        }
+
+        .each-session:hover {
+            background-color: #D5D5D6;
+        }
     }
 }

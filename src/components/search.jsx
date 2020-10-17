@@ -7,6 +7,12 @@ export default class Search extends React.Component {
         this.state = {
             
         }
+
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange(e){
+        this.props.updateSearchVal(e.target.value)
     }
 
     render(){
@@ -15,6 +21,7 @@ export default class Search extends React.Component {
             <div className="search">
                <input 
                  placeholder="Search title..."
+                 onChange={this.handleChange}
                />
             </div>
         )

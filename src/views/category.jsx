@@ -1,11 +1,9 @@
 import React from 'react';
-import { books } from '../data/books';
 import Table from '../components/table';
-import Nav from '../components/nav';
 import Profile from '../components/profile';
-import '../styles/books.scss'
+import '../styles/category.scss'
 
-export default class Books extends React.Component {
+export default class Category extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -15,16 +13,15 @@ export default class Books extends React.Component {
 
     render(){
         return (
-            <div className="books">
-                <Nav />
+            <div className="wrapper">
                 <div className="main-container">
                     <div className="profile-container">
                         <Profile />
                     </div>
                     <div className="info-container">
-                        <h1 className="page-title">Books</h1>
+                        <h1 className="page-title">{this.props.name}</h1>
                         <div className="content-table">
-                            <Table data={books}/>
+                            <Table data={this.props.data}/>
                         </div>
                     </div>
                 </div>

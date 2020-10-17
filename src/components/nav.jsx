@@ -18,13 +18,9 @@ export default class Nav extends React.Component {
             <div className="nav">
                 <h1 className="logo">Shareee</h1>
                 <div className="search-bar">
-                    <Search/>
+                    <Search updateSearchVal = {this.props.updateSearchVal} />
                 </div>
                 <button className="share-btn">
-                    <FontAwesomeIcon 
-                            icon={faPlus} 
-                            className="icon"
-                        />
                     Share
                 </button>
             </div>

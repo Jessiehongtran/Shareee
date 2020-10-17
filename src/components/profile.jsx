@@ -1,5 +1,8 @@
 import React from 'react';
-import '../styles/profile.scss'
+import '../styles/profile.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBook, faFilm, faMusic } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 export default class Profile extends React.Component {
     constructor(props){
@@ -17,9 +20,27 @@ export default class Profile extends React.Component {
                <h3 className="header">Your library</h3>
                <p className="name">Your name</p>
                <div className="menu">
-                    <a href="#">Books</a>
-                    <a href="#">Movies</a>
-                    <a href="#">Musics</a>
+                    <Link className="each-session" to="/books">
+                        <FontAwesomeIcon 
+                            icon={faBook} 
+                            className="icon"
+                        />
+                        Books
+                    </Link>
+                    <Link className="each-session" to="/movies">
+                        <FontAwesomeIcon 
+                            icon={faFilm} 
+                            className="icon"
+                        />
+                        Movies
+                    </Link>
+                    <Link className="each-session" to="/musics">
+                        <FontAwesomeIcon 
+                            icon={faMusic} 
+                            className="icon"
+                        />
+                        Musics
+                    </Link>
                </div>
             </div>
         )
