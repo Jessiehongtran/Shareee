@@ -4,16 +4,45 @@ import Category from './views/category';
 import { books, movies, musics } from './data/category-data';
 import Nav from './components/nav';
 import { Route } from 'react-router-dom';
+import axios from 'axios';
+import { API_URL } from './apiConfig';
 import './App.css';
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      searchVal: ""
+      searchVal: "",
+      books: [],
+      movies: [],
+      musics: []
     }
 
     this.updateSearchVal = this.updateSearchVal.bind(this)
+  }
+
+  async componentDidMount(){
+      try {
+        const resBooks = await axios.get(`${API_URL}/items/1`)
+        this.setState({books: resBooks.data})
+      } catch (err){
+        console.error(err)
+      }
+
+      try {
+        const resMovies = await axios.get(`${API_URL}/items/2`)
+        this.setState({movies: resMovies.data})
+      } catch (err){
+        console.error(err)
+      }
+
+      try {
+        const resMusics = await axios.get(`${API_URL}/items/3`)
+        this.setState({musics: resMusics.data})
+      } catch (err){
+        console.error(err)
+      }
+
   }
 
   updateSearchVal(val){
@@ -54,7 +83,7 @@ class App extends React.Component {
                     searchVal={this.state.searchVal} 
                     updateSearchVal = {this.updateSearchVal}
                   />
-                  <Category {...props} name="Books" data={this.filterList(books)}/>
+                  <Category {...props} name="Books" data={this.filterList(this.state.books)}/>
                 </>
               )
             }
@@ -70,7 +99,7 @@ class App extends React.Component {
                     searchVal={this.state.searchVal}
                     updateSearchVal = {this.updateSearchVal}
                   />
-                  <Category {...props} name="Movies" data={this.filterList(movies)}/>
+                  <Category {...props} name="Movies" data={this.filterList(this.state.movies)}/>
                 </>
               )
             }
@@ -86,7 +115,7 @@ class App extends React.Component {
                     searchVal={this.state.searchVal}
                     updateSearchVal = {this.updateSearchVal}
                   />
-                  <Category {...props} name="Musics" data={this.filterList(musics)}/>
+                  <Category {...props} name="Musics" data={this.filterList(this.state.musics)}/>
                 </>
               )
             }

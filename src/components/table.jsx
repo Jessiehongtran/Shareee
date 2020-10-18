@@ -7,7 +7,7 @@ export default class Table extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            headers: this.props.data && this.props.data.length > 0 ? Object.keys(this.props.data[0]) : []
+          
         }
     }
 
@@ -27,21 +27,20 @@ export default class Table extends React.Component {
 
     render(){
 
-        const { headers } = this.state;
-        console.log('props in table', this.props)
-
         return (
             <div className="table_container">
                 <table>
                     <tr>
-                        {headers.map(header => <th>{header}</th>)}
+                        {this.props.data[0] 
+                        ? (Object.keys(this.props.data[0])).map(header => <th>{header}</th>)
+                        : null}
                     </tr>
                     {this.props.data 
                     ? this.props.data.map((thing,i) => 
                             <tr className="each-row">
                                 {Object.values(thing).map((content, j) => 
                                 <td>
-                                    {headers[j] == "likes" 
+                                    {(Object.keys(this.props.data[0]))[j] == "likes" 
                                     ? <span 
                                         className="like-emoji"
                                         onClick={() => this.updateLike()}
