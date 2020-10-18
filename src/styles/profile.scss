@@ -17,7 +17,23 @@
     }
 
     .name {
-        margin-top: 0;
+        display: flex;
+        
+        .name-input {
+            margin-top: 0;
+            border: none;
+            width: 80px;
+            color: orange;
+            font-size: 16px;
+        }
+
+        .name-input:focus {
+            outline: none
+        }
+
+        .icon {
+            color: grey;
+        }
     }
 
     .menu {

@@ -1,15 +1,20 @@
 import React from 'react';
 import '../styles/nav.scss';
 import Search from './search';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus} from '@fortawesome/free-solid-svg-icons';
+import Share from '../views/share';
 
 export default class Nav extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            
+            seen: false
         }
+
+        this.toggleSharePage = this.toggleSharePage.bind(this)
+    }
+
+    toggleSharePage(){
+        this.setState({seen: !this.state.seen})
     }
 
     render(){
@@ -20,9 +25,13 @@ export default class Nav extends React.Component {
                 <div className="search-bar">
                     <Search updateSearchVal = {this.props.updateSearchVal} />
                 </div>
-                <button className="share-btn">
+                <button 
+                    className="share-btn"
+                    onClick={() => this.toggleSharePage()}
+                >
                     Share
                 </button>
+                {this.state.seen? <Share toggleSharePage={this.toggleSharePage} /> : null}
             </div>
         )
     }

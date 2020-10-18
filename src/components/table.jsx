@@ -21,6 +21,10 @@ export default class Table extends React.Component {
         return true;
       }
 
+    updateLike(){
+        //update like of that item in backend
+    }
+
     render(){
 
         const { headers } = this.state;
@@ -37,7 +41,12 @@ export default class Table extends React.Component {
                             <tr className="each-row">
                                 {Object.values(thing).map((content, j) => 
                                 <td>
-                                    {headers[j] == "likes" ? <span className="like-emoji">👍</span>: null}
+                                    {headers[j] == "likes" 
+                                    ? <span 
+                                        className="like-emoji"
+                                        onClick={() => this.updateLike()}
+                                      >👍</span>
+                                    : null}
                                     {this.isValidUrl(content) 
                                     ? <a href={content}> 
                                         <FontAwesomeIcon 
