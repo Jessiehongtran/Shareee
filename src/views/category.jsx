@@ -21,7 +21,10 @@ export default class Category extends React.Component {
                     <div className="info-container">
                         <h1 className="page-title">{this.props.name}</h1>
                         <div className="content-table">
-                            <Table data={this.props.data}/>
+                            <Table 
+                                data={this.props.data}
+                                updateLike={this.props.updateLike}
+                            />
                         </div>
                     </div>
                 </div>

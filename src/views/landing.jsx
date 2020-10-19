@@ -13,17 +13,17 @@ export default class Landing extends React.Component {
     }
 
     componentDidMount(){
-        axios.get('https://71.78.4.130:25000/api/v1/event/1', 
-        {
-            api_key: "ampcreative202010",
-            Authorization: {
-                user_name: 'apiuser',
-                password: 'AMPr3st@p!'
-            }
-        }
-        )
-            .then(res => console.log('test api', res.data))
-            .catch(err => console.log(err.message))
+        // axios.get('https://71.78.4.130:25000/api/v1/event/1', 
+        // {
+        //     api_key: "ampcreative202010",
+        //     Authorization: {
+        //         user_name: 'apiuser',
+        //         password: 'AMPr3st@p!'
+        //     }
+        // }
+        // )
+        //     .then(res => console.log('test api', res.data))
+        //     .catch(err => console.log(err.message))
     }
 
     render(){

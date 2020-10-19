@@ -18,6 +18,7 @@ export default class Nav extends React.Component {
     }
 
     render(){
+        console.log('props in Nav', this.props)
 
         return (
             <div className="nav">
@@ -31,7 +32,12 @@ export default class Nav extends React.Component {
                 >
                     Share
                 </button>
-                {this.state.seen? <Share toggleSharePage={this.toggleSharePage} /> : null}
+                {this.state.seen
+                ? <Share 
+                    toggleSharePage={this.toggleSharePage} 
+                    postItem = {this.props.postItem}
+                  /> 
+                : null}
             </div>
         )
     }

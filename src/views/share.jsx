@@ -29,20 +29,11 @@ export default class Share extends React.Component {
         this.setState({item: {...this.state.item, [e.target.name]: e.target.value}})
     }
 
-    async postItem(item){
-        try {
-            const res = await Axios.post(`${API_URL}/items`, item)
-            console.log(res.data)
-        } catch (err){
-            console.error(err)
-        }
-    }
-
     handleSubmit(e){
         e.preventDefault()
         console.log('item', this.state.item)
         //post an item
-        this.postItem(this.state.item)
+        this.props.postItem(this.state.item)
     }
 
 
@@ -57,8 +48,8 @@ export default class Share extends React.Component {
                             <span className="header">I recommend a</span>
                             <select name="category_id" onChange={this.handleChange}>
                                 <option value="1">book</option>
-                                <option value="1">movie</option>
-                                <option value="1">song</option>
+                                <option value="2">movie</option>
+                                <option value="3">song</option>
                             </select>
                         </div>
                         <div className="each-row">

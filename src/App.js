@@ -15,34 +15,60 @@ class App extends React.Component {
       searchVal: "",
       books: [],
       movies: [],
-      musics: []
+      musics: [],
     }
 
     this.updateSearchVal = this.updateSearchVal.bind(this)
+    this.getItems = this.getItems.bind(this)
+    this.postItem = this.postItem.bind(this)
+    this.updateLike = this.updateLike.bind(this)
   }
 
-  async componentDidMount(){
-      try {
-        const resBooks = await axios.get(`${API_URL}/items/1`)
-        this.setState({books: resBooks.data})
-      } catch (err){
-        console.error(err)
-      }
+  async getItems(){
+    try {
+      const resBooks = await axios.get(`${API_URL}/items/1`)
+      this.setState({books: resBooks.data})
+    } catch (err){
+      console.error(err)
+    }
 
-      try {
-        const resMovies = await axios.get(`${API_URL}/items/2`)
-        this.setState({movies: resMovies.data})
-      } catch (err){
-        console.error(err)
-      }
+    try {
+      const resMovies = await axios.get(`${API_URL}/items/2`)
+      this.setState({movies: resMovies.data})
+    } catch (err){
+      console.error(err)
+    }
+  
+    try {
+      const resMusics = await axios.get(`${API_URL}/items/3`)
+      this.setState({musics: resMusics.data})
+    } catch (err){
+      console.error(err)
+    }
+  }
 
-      try {
-        const resMusics = await axios.get(`${API_URL}/items/3`)
-        this.setState({musics: resMusics.data})
-      } catch (err){
-        console.error(err)
-      }
+  componentDidMount(){
+      this.getItems()
+  }
 
+  async updateLike(id, curLikes){
+    try {
+        const res = await axios.patch(`${API_URL}/items/${id}`, {likes: curLikes + 1})
+        console.log(res.data)
+        this.getItems()
+    } catch (err){
+        console.error(err)
+    }
+}
+
+  async postItem(item){
+    try {
+        const res = await axios.post(`${API_URL}/items`, item)
+        console.log(res.data)
+        this.getItems()
+    } catch (err){
+        console.error(err)
+    }
   }
 
   updateSearchVal(val){
@@ -59,7 +85,6 @@ class App extends React.Component {
   }
 
   render(){
-    console.log('searchVal', this.state.searchVal)
 
     return (
       <div className="App">
@@ -82,8 +107,14 @@ class App extends React.Component {
                   <Nav 
                     searchVal={this.state.searchVal} 
                     updateSearchVal = {this.updateSearchVal}
+                    postItem = {this.postItem}
                   />
-                  <Category {...props} name="Books" data={this.filterList(this.state.books)}/>
+                  <Category 
+                    {...props} 
+                    name="Books" 
+                    data={this.filterList(this.state.books)}
+                    updateLike={this.updateLike}
+                  />
                 </>
               )
             }
@@ -98,8 +129,14 @@ class App extends React.Component {
                   <Nav 
                     searchVal={this.state.searchVal}
                     updateSearchVal = {this.updateSearchVal}
+                    postItem = {this.postItem}
                   />
-                  <Category {...props} name="Movies" data={this.filterList(this.state.movies)}/>
+                  <Category 
+                    {...props} 
+                    name="Movies" 
+                    data={this.filterList(this.state.movies)}
+                    updateLike={this.updateLike}
+                  />
                 </>
               )
             }
@@ -114,8 +151,14 @@ class App extends React.Component {
                   <Nav 
                     searchVal={this.state.searchVal}
                     updateSearchVal = {this.updateSearchVal}
+                    postItem = {this.postItem}
                   />
-                  <Category {...props} name="Musics" data={this.filterList(this.state.musics)}/>
+                  <Category 
+                    {...props} 
+                    name="Musics" 
+                    data={this.filterList(this.state.musics)}
+                    updateLike={this.updateLike}
+                  />
                 </>
               )
             }

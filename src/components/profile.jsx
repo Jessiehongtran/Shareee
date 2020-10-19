@@ -8,22 +8,34 @@ export default class Profile extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            name: "Your name"
+            name: localStorage.getItem('username') !== null? localStorage.getItem('username') : "Your name",
+            nameUpdated: false
         }
 
         this.updateName = this.updateName.bind(this)
+        this.submitName = this.submitName.bind(this)
     }
 
     updateName(e){
-        this.setState({name: e.target.value})
+        this.setState({
+            name: e.target.value, 
+            nameUpdated: true
+        })
     }
+
+    submitName(e){
+        e.preventDefault()
+        localStorage.setItem('username', this.state.name)
+        this.setState({nameUpdated: false})
+    }
+
 
     render(){
         //how to save username in localStorage
 
         return (
             <div className="profile">
-               <img src="https://i.dlpng.com/static/png/6837968_preview.png" alt="profile image" className="profile_image"/>
+               <img src="https://cdn2.iconfinder.com/data/icons/circle-avatars-1/128/048_girl_avatar_profile_woman_waiter_butler-512.png" alt="profile image" className="profile_image"/>
                <h3 className="header">Your library</h3>
                <div className="name">
                     <input 
@@ -31,10 +43,13 @@ export default class Profile extends React.Component {
                         value={this.state.name}
                         onChange={this.updateName}
                     />
-                    <FontAwesomeIcon 
+                    {this.state.nameUpdated 
+                    ? <button onClick={(e) => this.submitName(e)}>Ok</button>
+                    : <FontAwesomeIcon 
                                 icon={faPencilAlt} 
                                 className="icon"
                     />
+                    }
                 </div>
                <div className="menu">
                     <Link className="each-session" to="/books">
