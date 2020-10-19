@@ -19,6 +19,7 @@ export default class Profile extends React.Component {
     }
 
     render(){
+        //how to save username in localStorage
 
         return (
             <div className="profile">
