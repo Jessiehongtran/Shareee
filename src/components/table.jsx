@@ -23,19 +23,16 @@ export default class Table extends React.Component {
         return true;
       }
 
-    // async updateLike(id, curLikes){
-    //     console.log('id', id)
-    //     //update like of that item in backend
-    //     try {
-    //         const res = await Axios.patch(`${API_URL}/items/${id}`, {likes: curLikes + 1})
-    //         console.log(res.data)
-    //     } catch (err){
-    //         console.error(err)
-    //     }
-    // }
+    getDateOnly(timeString){
+        for (let i = 0; i< timeString.length; i++){
+            if (timeString[i] === 'T'){
+              return timeString.slice(0,i)
+            }
+          }
+        return timeString
+    }
 
-    render(){
-        console.log('props in table', this.props)
+    render(){       
 
         return (
             <div className="table_container">
@@ -64,8 +61,9 @@ export default class Table extends React.Component {
                                             className="icon"
                                         />
                                       </a> 
-                                    : <p className="content">{content}</p>}
-
+                                    : (Object.keys(this.props.data[0]))[j] == "created_at" 
+                                        ? <p className="content">{this.getDateOnly(content)}</p>
+                                        : <p className="content">{content}</p>}
                                 </td>)}
                             </tr>
                         )
