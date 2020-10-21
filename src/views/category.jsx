@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from '../components/table';
 import Profile from '../components/profile';
-import '../styles/category.scss'
+import '../styles/category.scss';
 
 export default class Category extends React.Component {
     constructor(props){
@@ -21,10 +21,12 @@ export default class Category extends React.Component {
                     <div className="info-container">
                         <h1 className="page-title">{this.props.name}</h1>
                         <div className="content-table">
-                            <Table 
+                            {this.props.data.length > 0
+                            ? <Table 
                                 data={this.props.data}
                                 updateLike={this.props.updateLike}
                             />
+                            : <img src="https://media.giphy.com/media/ZBQhoZC0nqknSviPqT/giphy.gif"/>}
                         </div>
                     </div>
                 </div>

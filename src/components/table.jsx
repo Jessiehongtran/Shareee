@@ -2,8 +2,7 @@ import React from 'react';
 import '../styles/table.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { API_URL } from '../apiConfig';
-import Axios from 'axios';
+
 
 export default class Table extends React.Component {
     constructor(props){
