@@ -127,6 +127,9 @@ export default class Share extends React.Component {
                         </div>
                         : null}
                         <button className="share-btn">Share</button>
+                        {this.props.posted 
+                        ? <p className="posted-message">Posted successfully!</p>
+                        : null}
                     </form>
                 </div>
             </div>

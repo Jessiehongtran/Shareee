@@ -16,6 +16,7 @@ class App extends React.Component {
       books: [],
       movies: [],
       musics: [],
+      posted: false
     }
 
     this.updateSearchVal = this.updateSearchVal.bind(this)
@@ -66,6 +67,7 @@ class App extends React.Component {
         const res = await axios.post(`${API_URL}/items`, item)
         console.log(res.data)
         this.getItems()
+        this.setState({posted: true})
     } catch (err){
         console.error(err)
     }
@@ -108,6 +110,7 @@ class App extends React.Component {
                     searchVal={this.state.searchVal} 
                     updateSearchVal = {this.updateSearchVal}
                     postItem = {this.postItem}
+                    posted = {this.state.posted}
                   />
                   <Category 
                     {...props} 
@@ -130,6 +133,7 @@ class App extends React.Component {
                     searchVal={this.state.searchVal}
                     updateSearchVal = {this.updateSearchVal}
                     postItem = {this.postItem}
+                    posted = {this.state.posted}
                   />
                   <Category 
                     {...props} 
@@ -152,6 +156,7 @@ class App extends React.Component {
                     searchVal={this.state.searchVal}
                     updateSearchVal = {this.updateSearchVal}
                     postItem = {this.postItem}
+                    posted = {this.state.posted}
                   />
                   <Category 
                     {...props} 

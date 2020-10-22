@@ -61,6 +61,11 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+
+            .posted-message {
+                color: red;
+                font-style: italic;
+            }
             
             .each-row {
                 justify-content: flex-start;

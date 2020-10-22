@@ -24,7 +24,9 @@ export default class Nav extends React.Component {
             <div className="nav">
                 <h1 className="logo">Shareee</h1>
                 <div className="search-bar">
-                    <Search updateSearchVal = {this.props.updateSearchVal} />
+                    <Search 
+                        updateSearchVal = {this.props.updateSearchVal} 
+                    />
                 </div>
                 <button 
                     className="share-btn"
@@ -36,6 +38,7 @@ export default class Nav extends React.Component {
                 ? <Share 
                     toggleSharePage={this.toggleSharePage} 
                     postItem = {this.props.postItem}
+                    posted = {this.props.posted}
                   /> 
                 : null}
             </div>
